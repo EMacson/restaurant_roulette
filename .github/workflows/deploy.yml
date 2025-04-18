@@ -1,33 +1,29 @@
-name: Deploy React App to GitHub Pages
+name: Deploy
 
+# Run this workflow on pushes to the main branch
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to deploy from (e.g., "main" or "master")
+      - main
 
+# Define the job to run
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the latest version of the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Set up Node.js environment to use npm
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Use the appropriate Node.js version
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm install  # or `yarn install` if you're using Yarn
-
-      - name: Build the React app
-        run: npm run build  # or `yarn build`
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: main  # The branch to deploy to (you can use 'gh-pages' or create another branch)
-          folder: restaurant-roulette/build     # Folder to deploy (this should be the build folder created by the React app)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub provides this token automatically
+      # Install dependencies and build the React app
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
