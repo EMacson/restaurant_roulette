@@ -27,7 +27,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # The branch to deploy to (you can use 'gh-pages' or create another branch)
-          folder: build     # Folder to deploy (this should be the build folder created by the React app)
+          branch: main  # The branch to deploy to (you can use 'gh-pages' or create another branch)
+          folder: restaurant-roulette/build     # Folder to deploy (this should be the build folder created by the React app)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub provides this token automatically
