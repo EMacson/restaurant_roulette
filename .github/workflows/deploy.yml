@@ -27,6 +27,8 @@ jobs:
         run: |
           cd restaurant-roulette
           npm run build
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
