@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import config from './conf.js';
+//import config from './conf.js';
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const App = () => {
   const [location, setLocation] = useState(null);
@@ -37,7 +38,7 @@ const App = () => {
 
     try {
       const response = await axios.get(
-        `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=1500&type=restaurant&key=${config.API_KEY}`
+        `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=1500&type=restaurant&key=${apiKey}`
       );
       setPlaces(response.data.results);
     } catch (error) {
