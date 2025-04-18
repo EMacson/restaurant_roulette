@@ -34,7 +34,6 @@ const App = () => {
     }
 
     const { latitude, longitude } = location;
-    //const apiKey = 'AIzaSyBB2d5YQ1u-fBqz1UXrTd4m-lNAr1H8B9Y'; // Replace with your actual API key
 
     try {
       const response = await axios.get(
